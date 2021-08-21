@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
@@ -9,7 +10,7 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors({ origin: "*" }));
 
-app.use("/public", express.static(process.cwd() + "/public")); 
+app.use(express.static(path.join(__dirname, 'public')));
 
 const transporter = nodemailer.createTransport({
   service: "hotmail",
