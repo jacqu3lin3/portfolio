@@ -13,7 +13,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const transporter = nodemailer.createTransport({
-  service: "hotmail",
+  service: "gmail",
   auth: {
     user: process.env.EMAIL,
     pass: process.env.PASS,
