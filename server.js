@@ -47,7 +47,7 @@ app.post("/send", (req, res) => {
         console.log(err);
         res.status(500).send("Something went wrong.");
       } else {
-        res.status(200).send("Email successfully sent!");
+        res.status(200).send("Email successfully sent! We will get back to you shortly.");
       }
     });
   });

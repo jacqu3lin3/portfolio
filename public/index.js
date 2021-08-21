@@ -1,12 +1,14 @@
+require("dotenv").config();
+
 const form = document.getElementById("contactform"); 
-const formEvent = form.addEventListener("submit", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   let mail = new FormData(form);
   sendMail(mail);
 })
 
 const sendMail = (mail) => {
-    fetch(`${SERVER_URL}/send`, {
+    fetch(`${process.env.SERVER_URL}/send`, {
       method: "post", 
       body: mail,
   
