@@ -3,6 +3,8 @@ const path = require("path");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 require("dotenv").config();
 
 const PORT = process.env.PORT || 8000;
@@ -12,19 +14,20 @@ app.use(cors({ origin: "*" }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+const myOAuth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET)
+myOAuth2Client.setCredentials({refresh_token: process.env.REFRESH_TOKEN});
+const myAccessToken = myOAuth2Client.getAccessToken()
+
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-//   service: "gmail",
+  service: "gmail",
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASS,
-  },
-  tls: {
-    // do not fail on invalid certs
-    rejectUnauthorized: false
-}
+    type: "OAuth2",
+    user: process.env.EMAIL, //your gmail account you used to set the project up in google cloud console"
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    refreshToken: process.env.REFRESH_TOKEN,
+    accessToken: myAccessToken //access token variable we defined earlier
+  }
 });
 
 transporter.verify(function (error, success) {
