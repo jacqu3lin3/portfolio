@@ -13,11 +13,18 @@ app.use(cors({ origin: "*" }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+//   service: "gmail",
   auth: {
     user: process.env.EMAIL,
     pass: process.env.PASS,
   },
+  tls: {
+    // do not fail on invalid certs
+    rejectUnauthorized: false
+}
 });
 
 transporter.verify(function (error, success) {
