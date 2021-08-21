@@ -1,0 +1,142 @@
+body {
+    margin: 0 auto;
+    max-width: 700px;
+    background-color: #bcade6;
+  }
+  
+  
+  #icon img {
+    height: 50px;
+    width: 200px;
+  }
+  
+  #icon {
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+  }
+  
+  input {
+    margin-bottom: 1em;
+    margin-top: 1em;
+  }
+  
+  .resume {
+    margin: 0 auto;
+    padding: 50px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .info {
+    font-weight: bold;
+  }
+  
+  .heading {
+    line-height: 1;
+    font-size: 3em;
+  }
+  
+  .contact,
+  .profile,
+  .projects,
+  .resume__techskills {
+    margin-bottom: 75px;
+  }
+  
+  .project,
+  .education {
+    padding-bottom: 10px;
+  }
+  
+  .project {
+    margin-bottom: 1em;
+  }
+  
+  .project:last-child {
+    margin-bottom: 0;
+  }
+  
+  .project div {
+    padding-bottom: 0.2em;
+  }
+  
+  .project_info {
+    margin-bottom: 1em;
+  }
+  
+  @media
+   (min-width: 600px) {
+    .resume {
+      max-width: 900px;
+      width: 100%;
+    }
+  
+    .heading {
+      line-height: 0.5;
+      font-size: 2em;
+    }
+  
+    .contact,
+    .profile,
+    .projects,
+    .techskills,
+    .education {
+      display: flex;
+    }
+  
+    .contact_name {
+      flex-grow: 2;
+    }
+  
+    .profile_name,
+    .projects_name,
+    .techskills_name,
+    .education_name {
+      flex-grow: 2;
+      margin-right: 5%;
+    }
+  
+    .profile_info,
+    .projects_info,
+    .techskills_info,
+    .education_info {
+      width: 65%;
+    }
+  
+    .resume__profile {
+      display: flex;
+    }
+  }
+  
+  @media
+   (min-width: 900px) {
+    .resume {
+      max-width: 900px;
+      width: 100%;
+    }
+  
+    .contact_info {
+      width: 65%;
+    }
+  }
+
+  .formContainer {
+        position: relative;
+        margin: 8% auto;
+        min-height: 60%;
+        width: 50%;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+        background: rgb(255, 255, 255);
+        padding: 0px 0px 5px 15px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        border: 1px solid rgb(244, 96, 224);
+          
+    }
